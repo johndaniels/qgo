@@ -27,6 +27,7 @@
 */
 
 
+#include "precompile.h"
 #include "sgfparser.h"
 #include "../defines.h"
 #include "move.h"

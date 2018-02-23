@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "talk.h"
 #include "networkconnection.h"
 #include "gamedialog.h"

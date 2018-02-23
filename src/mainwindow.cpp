@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "defines.h"
 #include "mainwindow.h"
 #include "boardwindow.h"

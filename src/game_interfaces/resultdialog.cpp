@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtWidgets>
 #include "../network/messages.h"
 #include "resultdialog.h"

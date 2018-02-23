@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtWidgets>
 #include "login.h"
 #include "host.h"

@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "move.h"
 #include "matrix.h"
 #include "group.h"

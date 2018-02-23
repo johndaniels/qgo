@@ -15,6 +15,7 @@ win32 {
     RC_FILE = qgo.rc
 }
 TEMPLATE = app
+CONFIG += precompile_header
 
 INCLUDEPATH += . network \
 audio \
@@ -49,7 +50,11 @@ FORMS += mainwindow.ui \
     newgamedialog.ui \
     preferences.ui
 
-HEADERS += defines.h \
+# Use Precompiled headers (PCH)
+PRECOMPILED_HEADER = precompile.h
+
+HEADERS += precompile.h \
+defines.h \
 displayboard.h \
 gamedata.h \
 listviews.h \

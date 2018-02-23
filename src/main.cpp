@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QApplication>
 
 #include "mainwindow.h"

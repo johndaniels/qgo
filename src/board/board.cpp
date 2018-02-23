@@ -28,6 +28,7 @@
  * It does not know about the game tree or the matrix,
  * and takes its orders only from boardhandler
  */
+#include "precompile.h"
 #include "board.h"
 #include "stone.h"
 #include "gatter.h"

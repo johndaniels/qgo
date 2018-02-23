@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #ifdef LATENCY
 #include <sys/time.h>
 #endif //LATENCY

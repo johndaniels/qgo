@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "friendslistdialog.h"
 #include "network/networkconnection.h"
 #include "network/playergamelistings.h"

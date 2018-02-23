@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtWidgets>
 #include "codecwarndialog.h"
 #include "../defines.h"

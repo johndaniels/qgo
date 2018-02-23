@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtWidgets>
 #include "setphrasepalette.h"
 #include "orosetphrasechat.h"

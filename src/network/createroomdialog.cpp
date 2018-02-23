@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtWidgets>
 #include "createroomdialog.h"
 #include "networkconnection.h"

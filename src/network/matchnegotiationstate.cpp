@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <QtCore>
 #include "matchnegotiationstate.h"
 #include "messages.h"

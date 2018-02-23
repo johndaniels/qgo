@@ -19,13 +19,22 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#ifndef PRECOMPILE_H
+#define PRECOMPILE_H
 
-#include "precompile.h"
-#include "group.h"
+#include <QtCore>
+#include <QtWidgets>
+#include <QApplication>
+#include <QtWidgets>
+#include <QPushButton>
+#include <QPixmap>
+#include <QGraphicsScene>
+#include <QMessageBox>
+#include <vector>
+#include <QList>
+#include <QDebug>
+#include <QCoreApplication>
+#include <map>
+#include <QFileDialog>
 
-void Group::remove(int key)
-{
-    int i = indexOf(key);
-    if (i != -1)
-        removeAt(i);
-}
+#endif

@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "eweiqiconnection.h"
 #include "codecwarndialog.h"
 #include "playergamelistings.h"

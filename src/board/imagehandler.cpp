@@ -28,6 +28,7 @@
 *
 */
 
+#include "precompile.h"
 #include <cmath>
 
 #include "defines.h"

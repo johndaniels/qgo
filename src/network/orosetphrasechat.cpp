@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "orosetphrasechat.h"
 #include <QCoreApplication>
 

@@ -28,6 +28,7 @@
  * to the full time left. */
 
 
+#include "precompile.h"
 #include "clockdisplay.h"
 #include "boardwindow.h"
 #include "audio.h"

@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "consoledispatch.h"
 #include "../mainwindow.h"
 #include "networkconnection.h"

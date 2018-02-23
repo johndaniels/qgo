@@ -5,6 +5,7 @@
 /* There are a lot of possibilities for segmentation faults in this
  * file that need to be fixed, places where the dispatch is null */
 
+#include "precompile.h"
 #include "parser.h"
 #include "networkconnection.h"
 #include "igsc.h"

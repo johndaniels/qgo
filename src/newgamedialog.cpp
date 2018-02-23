@@ -1,3 +1,4 @@
+#include "precompile.h"
 #include "newgamedialog.h"
 #include "ui_newgamedialog.h"
 

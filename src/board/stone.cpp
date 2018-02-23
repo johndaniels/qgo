@@ -25,6 +25,7 @@
 * This class handles the graphical appearance of the stones on the board
 * Is is used only by the 'board' class
 */
+#include "precompile.h"
 
 #include "../defines.h"
 #include "stone.h"

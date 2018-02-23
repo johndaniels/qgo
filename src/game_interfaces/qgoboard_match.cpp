@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "qgoboard_net.h"
 #include "tree.h"
 #include "move.h"

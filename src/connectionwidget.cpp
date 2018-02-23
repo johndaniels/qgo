@@ -18,6 +18,8 @@
  *   or write to the Free Software Foundation, Inc.,                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
+#include "precompile.h"
 #include "connectionwidget.h"
 #include "ui_connectionwidget.h"
 

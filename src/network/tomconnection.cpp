@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "tomconnection.h"
 #include "room.h"
 #include "playergamelistings.h"

@@ -1,3 +1,4 @@
+#include "precompile.h"
 #include "preferences.h"
 #include "ui_preferences.h"
 #include "defines.h"

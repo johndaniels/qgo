@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "mark.h"
 #include "imagehandler.h"
 

@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "gamedialog.h"
 #include "audio.h"
 

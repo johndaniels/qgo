@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <string.h>
 #include "wing.h"
 #include "consoledispatch.h"

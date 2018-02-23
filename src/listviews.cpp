@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include "listviews.h"
 #include "network/messages.h"
 #include "playergamelistings.h"

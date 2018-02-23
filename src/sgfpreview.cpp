@@ -1,3 +1,4 @@
+#include "precompile.h"
 #include "sgfpreview.h"
 #include "ui_sgfpreview.h"
 #include "displayboard.h"

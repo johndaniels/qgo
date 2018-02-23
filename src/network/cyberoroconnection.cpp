@@ -20,6 +20,7 @@
  ***************************************************************************/
 
 
+#include "precompile.h"
 #include <string.h>
 #include <math.h>
 #include "cyberoroconnection.h"
