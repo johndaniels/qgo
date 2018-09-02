@@ -163,7 +163,6 @@ class IGSConnection : public NetworkConnection
         void setCurrentRoom(const RoomListing & room) { currentRoom = &room; }
         const RoomListing * getCurrentRoom(void) { return currentRoom; }
 		
-		bool guestAccount;
 		bool needToSendClientToggle;
 		const RoomListing * currentRoom;
 };

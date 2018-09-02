@@ -57,7 +57,6 @@ void IGSConnection::init(void)
 	wtime = new TimeRecord();
 	protocol_save_int = -1;
 	game_were_playing = 0;
-	guestAccount = false;
 	needToSendClientToggle = true;
 }
 
@@ -624,9 +623,9 @@ void IGSConnection::handlePassword(QString msg)
 	}
 	else if(msg.contains("guest"))
 	{
+        // Don't support guest accounts. Those are just weird on IGS
         qDebug("Guest account");
-        setState(PasswordSent);
-		guestAccount = true;
+        setState(AuthFailed);
 	}
 }
 
@@ -674,23 +673,21 @@ void IGSConnection::onReady(void)
 		
 		//onAuthenticationNegotiated();
 		
-		if(!guestAccount)
-		{
-			sendText("toggle newundo on\r\n");		//undoplease undo requests
-			//sendText("toggle client on\r\n");		//adds type codes, done earlier
-			sendText("toggle nmatch on\r\n");		//allows nmatch
-			sendText("toggle seek on\r\n");
-			sendText("toggle newrating\r\n");		//?s and +s
-		
-			//sendText("toggle quiet on\r\n");		//FIXME do we want this?
-			//sendText("toggle quiet off\r\n");
-			//sendText("toggle review on\r\n");
-			
-            //sendPlayersRequest();
-			
-			sendNmatchParameters();
-			sendText("seek config_list\r\n");
-		}
+        sendText("toggle newundo on\r\n");		//undoplease undo requests
+        //sendText("toggle client on\r\n");		//adds type codes, done earlier
+        sendText("toggle nmatch on\r\n");		//allows nmatch
+        sendText("toggle seek on\r\n");
+        sendText("toggle newrating\r\n");		//?s and +s
+
+        //sendText("toggle quiet on\r\n");		//FIXME do we want this?
+        //sendText("toggle quiet off\r\n");
+        //sendText("toggle review on\r\n");
+
+        //sendPlayersRequest();
+
+        sendNmatchParameters();
+        sendText("seek config_list\r\n");
+
 	
         //sendGamesRequest();
 		recvRoomListing(new RoomListing(0, "Lobby"));
@@ -906,11 +903,6 @@ void IGSConnection::handleMessage(QString msg)
 	
 	if(needToSendClientToggle)
 		onAuthenticationNegotiated();
-	if(msg.contains("You have logged in as a guest"))	//WING, doesn't work, plus ugly
-	{
-		guestAccount = true;
-        setState(PasswordSent);
-	}
 	if(!type)
 	{	
 		

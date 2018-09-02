@@ -227,3 +227,6 @@ INSTALLS += sounds
 
 target.path = $${QGO_INSTALL_BIN_PATH}
 INSTALLS += target
+
+DISTFILES += \
+    ../.travis.yml
