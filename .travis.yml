@@ -1,17 +1,23 @@
-
 os:
-  - osx
-
+- osx
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qt5-default qttools5-dev-tools qtmultimedia5-dev ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt5     ; fi
-
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update ; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qt5-default qttools5-dev-tools
+  qtmultimedia5-dev ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt5     ; fi
 script:
-  - cd src
-  - /usr/local/opt/qt/bin/qmake
-  - make
-  - cd ..
-  - /usr/local/opt/qt/bin/macdeployqt build/qgo.app
-
+- cd src
+- "/usr/local/opt/qt/bin/qmake"
+- make
+- cd ..
+- "/usr/local/opt/qt/bin/macdeployqt build/qgo.app"
+deploy:
+  provider: releases
+  api_key:
+    secure: l7clTuGJi+Umcp/KzoGoGP09FiNpbXglYGr2jkQnsP90Ze6z7XwDi8I0wxtBZzV07PdJaMh4w/UFUlCPE0A7vZq1UYoj5A3kd7vRpFRXC540Hn0eD55DliQiEJLRbxdLS0G5L3G6ZDZg+dUYLy0ZxdBUIWhwKvVR5h/Hy+bN7ouEnongbQ5oIPGu5oUq/IS+FaNDNTy2R16p3XwccB1VQs5ZDdXa75+YnY0nrIiNrYvBPvKxyoC6jJhAnBmuiSNfScbY/0cLEbYDxoJ2jy7Gs/+/nzL5hNuyp7W7WyDIOVJ77He9/nFdwaIlAmgRB+SVQBv7jwvsG87yGvsbCefxqXVuprzksSCbO5P6NR0IciZ+ZKWqVoSjhhbGn0+vfpM7FVTeHyDzPHTQghR0O8H3y0o83lf8lDakx79ThqON8Th1jIxaoakaHOqxKS/DBXc/tg+UGr/l+KLNiwhFV+i+IYGnpSRfBEDX+ES7+IeahllC+un50a7morA7JEP3RlRhu7fIWALhBOWPPSmDU6WfUAx0PnGh8DdwNjjhR9plpQaexIGKDbGV2cnG0DCbnlGGXUNOGJdc0+/eKihFZuvNhBI9iWiR0n/xz6ApKUuwHVFErvpFzdBA1hVa7Vu7HRnOYyoM1itWtRalWU/mjt3INj2r5ijegh8i61P0ac8vISY=
+  skip_cleanup: true
+  file: build/qgo.dmg
+  on:
+    tags: true
+    repo: johndaniels/qgo
