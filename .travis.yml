@@ -11,7 +11,7 @@ script:
 - "/usr/local/opt/qt/bin/qmake"
 - make
 - cd ..
-- "/usr/local/opt/qt/bin/macdeployqt build/qgo.app"
+- "/usr/local/opt/qt/bin/macdeployqt build/qgo.app -dmg"
 deploy:
   provider: releases
   api_key:
