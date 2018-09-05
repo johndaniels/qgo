@@ -1,0 +1,14 @@
+version: 1.0.{build}
+build_script:
+- ps: "$env:Path += \";C:\\Qt\\Tools\\mingw530_32\\bin\\\"\ncd src\nC:\\Qt\\5.10.1\\mingw53_32\\bin\\qmake\nC:\\Qt\\Tools\\mingw530_32\\bin\\mingw32-make.exe\ncd ..\n\nmkdir dist \ncp .\\build\\qgo.exe dist\nC:\\Qt\\5.10.1\\mingw53_32\\bin\\windeployqt.exe .\\dist\\qgo.exe\ncp C:\\Qt\\Tools\\mingw530_32\\bin\\libstdc++-6.dll dist\ncp C:\\Qt\\Tools\\mingw530_32\\bin\\libgcc_s_dw2-1.dll dist\ncp C:\\Qt\\Tools\\mingw530_32\\bin\\libwinpthread-1.dll dist\n\ncd dist\n7z a qgo-windows.zip .\\**"
+artifacts:
+- path: dist\qgo-windows.zip
+  name: qgo
+deploy:
+- provider: GitHub
+  auth_token:
+    secure: LURL+0eh23izsK/Z6AjhKr/qzD/Bc2/OJdtpZ90wUov79KAwd7sdu0sQmT0e/mXy
+  artifact: qgo
+  force_update: true
+  on:
+    APPVEYOR_REPO_TAG: true
