@@ -67,8 +67,9 @@ void NewGameDialog::accept()
 
     BoardWindow * bw = new BoardWindow(gd, !(ui->computerPlaysBlack->isChecked()),
                                        !(ui->computerPlaysWhite->isChecked()));
-    if(bw)
+    if(bw) {
         mw->addBoardWindow(bw);
+    }
 
     QDialog::accept();
 }

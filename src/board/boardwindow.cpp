@@ -185,7 +185,8 @@ BoardWindow::BoardWindow(GameData *gd, bool iAmBlack , bool iAmWhite, class Boar
 
         /* Right now, IGS is the only server with addtime, but if nigiri is done in another order
          * this will have to be moved elsewhere: */
-        if(!gameData->nigiriToBeSettled)
+        // TODO: We need to figure out where to put 'add time'
+        /*if(!gameData->nigiriToBeSettled)
         {
             if(myColorIsBlack)
             {
@@ -198,7 +199,7 @@ BoardWindow::BoardWindow(GameData *gd, bool iAmBlack , bool iAmWhite, class Boar
             else
                 qDebug("Warning: Nigiri settled in match mode but player has no color");
             connect(addtime_menu, &QMenu::triggered, this, &BoardWindow::slot_addtime_menu);
-        }
+        }*/
     }
 
     //connects the comments and edit line to the slots
@@ -223,7 +224,7 @@ BoardWindow::BoardWindow(GameData *gd, bool iAmBlack , bool iAmWhite, class Boar
 	{
         case modeEdit :
         case modeLocal :
-        qgoboard = new qGoBoardLocalInterface(this, tree,gameData);
+        qgoboard = new qGoBoardLocalInterface(this, tree, gameData);
         ui->computerBlack->setChecked(!iAmBlack);
         ui->computerWhite->setChecked(!iAmWhite);
 			break;	
@@ -1295,8 +1296,8 @@ void BoardWindow::clearData()
     ui->capturesBlack->setText("0");
     ui->capturesWhite->setText("0");
 
-    ui->pb_timeBlack->setText("00:00");
-    ui->pb_timeWhite->setText("00:00");
+    ui->blackTimeLabel->setText("00:00");
+    ui->whiteTimeLabel->setText("00:00");
 
     ui->scoreButton->setDown(false);
 
@@ -1412,12 +1413,12 @@ void BoardWindow::setObserverModel(QAbstractItemModel *model)
 
 void BoardWindow::setTimeBlack(QString time)
 {
-    ui->pb_timeBlack->setText(time);
+    ui->blackTimeLabel->setText(time);
 }
 
 void BoardWindow::setTimeWhite(QString time)
 {
-    ui->pb_timeWhite->setText(time);
+    ui->whiteTimeLabel->setText(time);
 }
 
 void BoardWindow::warnTimeBlack(TimeWarnState state)
@@ -1425,24 +1426,14 @@ void BoardWindow::warnTimeBlack(TimeWarnState state)
     switch (state)
     {
     case TimeOK:
-        if(ui->pb_timeBlack->palette().color(QPalette::Background) != Qt::black)
-        {
-            ui->pb_timeBlack->setPalette(QPalette(Qt::black));
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
-    /* Otherwise windows XP/Mac style makes time buttons ugly white on white.
-     * This could interfere with blinking warning. */
-    ui->pb_timeBlack->setStyleSheet("background-color: black; color: white");
-#endif //Q_OS_WIN
-        }
+        ui->blackTimeLabel->setStyleSheet("background-color: black; color: white;");
         return;
     case TimeLow:
-        if(ui->pb_timeBlack->palette().color(QPalette::Background) == Qt::black)
-            ui->pb_timeBlack->setPalette(QPalette(Qt::yellow));
-        else
-            ui->pb_timeBlack->setPalette(QPalette(Qt::black));
+        ui->blackTimeLabel->setStyleSheet("background-color: black; color: white;");
         return;
     case TimeExpired:
-        ui->pb_timeBlack->setPalette(QPalette(Qt::red));
+        ui->blackTimeLabel->setStyleSheet("background-color: black; color: white;");
+        return;
     }
 }
 
@@ -1451,24 +1442,14 @@ void BoardWindow::warnTimeWhite(TimeWarnState state)
     switch (state)
     {
     case TimeOK:
-        if(ui->pb_timeWhite->palette().color(QPalette::Background) != Qt::black)
-        {
-            ui->pb_timeWhite->setPalette(QPalette(Qt::black));
-#if defined(Q_OS_WIN) || defined(Q_OS_MAC)
-    /* Otherwise windows XP/Mac style makes time buttons ugly white on white.
-     * This could interfere with blinking warning. */
-    ui->pb_timeWhite->setStyleSheet("background-color: black; color: white");
-#endif //Q_OS_WIN
-        }
+        ui->whiteTimeLabel->setStyleSheet("blackground-color: blue; color: white;");
         return;
     case TimeLow:
-        if(ui->pb_timeWhite->palette().color(QPalette::Background) == Qt::black)
-            ui->pb_timeWhite->setPalette(QPalette(Qt::yellow));
-        else
-            ui->pb_timeWhite->setPalette(QPalette(Qt::black));
+        ui->whiteTimeLabel->setStyleSheet("blackground-color: blue; color: white;");
         return;
     case TimeExpired:
-        ui->pb_timeWhite->setPalette(QPalette(Qt::red));
+        ui->whiteTimeLabel->setStyleSheet("blackground-color: blue; color: white;");
+        return;
     }
 }
 
